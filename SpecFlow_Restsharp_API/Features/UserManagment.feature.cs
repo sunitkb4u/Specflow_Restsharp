@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Specflow_UI_Project.Features
+namespace SpecFlow_Restsharp_API.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace Specflow_UI_Project.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("LoginAdminPortal")]
-    public partial class LoginAdminPortalFeature
+    [NUnit.Framework.DescriptionAttribute("UserManagment")]
+    public partial class UserManagmentFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "LoginAdminPortal.feature"
+#line 1 "UserManagment.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "LoginAdminPortal", "Login to admin portal should happen using valid credential only", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "UserManagment", "User management using Get, Post,Put, Delete user", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,22 +74,25 @@ namespace Specflow_UI_Project.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Login Using valid Credential")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("valid_User", "valid_Password", null)]
-        public void LoginUsingValidCredential(string username, string password, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Validate get User Api")]
+        [NUnit.Framework.CategoryAttribute("Users")]
+        [NUnit.Framework.TestCaseAttribute("1", "Janet", "Weaver", "200", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "Janet", "Weaver", "200", null)]
+        public void ValidateGetUserApi(string id, string firstName, string lastName, string httpCode, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Smoke"};
+                    "Users"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("username", username);
-            argumentsOfScenario.Add("password", password);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login Using valid Credential", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("id", id);
+            argumentsOfScenario.Add("firstName", firstName);
+            argumentsOfScenario.Add("lastName", lastName);
+            argumentsOfScenario.Add("httpCode", httpCode);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate get User Api", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -101,41 +104,36 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("User is on admin portal login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("User enters user id {0}", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.When(string.Format("User enters credential {0} and {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("User send get user request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.And("user clicks on Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 10
- testRunner.Then("User should be logged in successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("User validates details {0} {1} and http response code {2}", firstName, lastName, httpCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Login Using Invalid Credential")]
-        [NUnit.Framework.CategoryAttribute("Admin")]
-        [NUnit.Framework.TestCaseAttribute("invalid_user", "invalid_password", "Please enter valid credential", null)]
-        [NUnit.Framework.TestCaseAttribute("valid_User", "invalid_password", "Please enter password", null)]
-        public void LoginUsingInvalidCredential(string username, string password, string error, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Validates delete user API")]
+        [NUnit.Framework.CategoryAttribute("Users")]
+        [NUnit.Framework.TestCaseAttribute("204 Test", "2", null)]
+        public void ValidatesDeleteUserAPI(string hrrpCode, string id, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Admin"};
+                    "Users"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("username", username);
-            argumentsOfScenario.Add("password", password);
-            argumentsOfScenario.Add("error", error);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login Using Invalid Credential", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 16
+            argumentsOfScenario.Add("hrrpCode", hrrpCode);
+            argumentsOfScenario.Add("id", id);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validates delete user API", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -145,17 +143,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
- testRunner.Given("User is on admin portal login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 18
- testRunner.When(string.Format("User enters credential {0} and {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 19
- testRunner.And("user clicks on Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given(string.Format("User enters job user id {0}", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
- testRunner.Then(string.Format("User should get {0}", error), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("User send delete user request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 21
+testRunner.Then("Validate iser should get deleted <httpCode>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
