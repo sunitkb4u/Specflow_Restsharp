@@ -35,6 +35,7 @@ namespace Specflow_Restsharp_Project.StepDefinitions
         public void ThenUserShouldBeLoggedInSuccessfully()
         {
             DashboardPage dashboardPage = new DashboardPage(myDriver);
+            System.Threading.Thread.Sleep(1000);
             Assert.IsTrue(dashboardPage.dasboardTesxt.Displayed, " User was not logged in successfully");
             WebDriverClass webDriverClass = new WebDriverClass();
             webDriverClass.CloseBrowser(myDriver);

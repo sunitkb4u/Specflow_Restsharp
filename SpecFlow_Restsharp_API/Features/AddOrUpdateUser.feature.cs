@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Specflow_UI_Project.Features
+namespace SpecFlow_Restsharp_API.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace Specflow_UI_Project.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("LoginAdminPortal")]
-    public partial class LoginAdminPortalFeature
+    [NUnit.Framework.DescriptionAttribute("AddOrUpdateUser")]
+    public partial class AddOrUpdateUserFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "LoginAdminPortal.feature"
+#line 1 "AddOrUpdateUser.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "LoginAdminPortal", "Login to admin portal should happen using valid credential only", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "AddOrUpdateUser", "User management using Post or Put user", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,22 +74,22 @@ namespace Specflow_UI_Project.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Login Using valid Credential")]
-        [NUnit.Framework.CategoryAttribute("Smoke")]
-        [NUnit.Framework.TestCaseAttribute("valid_User", "valid_Password", null)]
-        public void LoginUsingValidCredential(string username, string password, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Validates create user API")]
+        [NUnit.Framework.CategoryAttribute("Users")]
+        [NUnit.Framework.TestCaseAttribute("Tester", "API Test", null)]
+        public void ValidatesCreateUserAPI(string job, string role, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Smoke"};
+                    "Users"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("username", username);
-            argumentsOfScenario.Add("password", password);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login Using valid Credential", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("job", job);
+            argumentsOfScenario.Add("role", role);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validates create user API", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -101,40 +101,39 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("User is on admin portal login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given(string.Format("User entrs job {0}", job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.When(string.Format("User enters credential {0} and {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And(string.Format("User enters role {0}", role), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
- testRunner.And("user clicks on Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("User send create user request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("User should be logged in successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("user should get created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Login Using Invalid Credential")]
-        [NUnit.Framework.CategoryAttribute("Admin")]
-        [NUnit.Framework.TestCaseAttribute("invalid_user", "invalid_password", "Please enter valid credential", null)]
-        [NUnit.Framework.TestCaseAttribute("valid_User", "invalid_password", "Please enter password", null)]
-        public void LoginUsingInvalidCredential(string username, string password, string error, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Validates update user API")]
+        [NUnit.Framework.CategoryAttribute("Users")]
+        [NUnit.Framework.TestCaseAttribute("Tester", "API Test", "2", null)]
+        public void ValidatesUpdateUserAPI(string job, string role, string id, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Admin"};
+                    "Users"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("username", username);
-            argumentsOfScenario.Add("password", password);
-            argumentsOfScenario.Add("error", error);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login Using Invalid Credential", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("job", job);
+            argumentsOfScenario.Add("role", role);
+            argumentsOfScenario.Add("id", id);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validates update user API", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -146,16 +145,19 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 17
- testRunner.Given("User is on admin portal login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given(string.Format("User entrs job {0}", job), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 18
- testRunner.When(string.Format("User enters credential {0} and {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And(string.Format("User enters role {0}", role), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
- testRunner.And("user clicks on Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.Given(string.Format("user want to update user id {0}", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
- testRunner.Then(string.Format("User should get {0}", error), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("User send update user request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 21
+testRunner.Then("user should get updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
