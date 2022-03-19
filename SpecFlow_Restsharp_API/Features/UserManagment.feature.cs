@@ -150,7 +150,7 @@ testRunner.Given(string.Format("User enters job user id {0}", id), ((string)(nul
 testRunner.When("User send delete user request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 21
-testRunner.Then("Validate iser should get deleted <httpCode>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("Validate user should get deleted <httpCode>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -18,7 +18,7 @@ Examples:
 Scenario Outline: Validates delete user API
 Given User enters job user id <id>
 When User send delete user request
-Then  Validate iser should get deleted <httpCode>
+Then  Validate user should get deleted <httpCode>
 Examples: 
 | hrrpCode | id |
 | 204 Test | 2  |
